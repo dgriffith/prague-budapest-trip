@@ -303,3 +303,38 @@ mark.hl-green { background: #cfe8cf; }
 mark.hl-blue { background: #cfe0f5; }
 mark.hl-pink { background: #f6d3e0; }
 mark.hl-orange { background: #f8dcc0; }
+
+/* Link-hover previews (#2710): the app's note preview, in the page's palette. */
+.minerva-link-preview {
+  position: fixed;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-sizing: border-box;
+  min-width: 180px;
+  max-width: 360px;
+  padding: 10px 12px;
+  background: var(--bg-elev, var(--code-bg, #f2efe7));
+  color: var(--fg, #2b2a27);
+  border: 1px solid var(--border, #e1e1e1);
+  border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.45;
+  text-align: left;
+}
+.minerva-link-preview[hidden] { display: none; }
+.minerva-link-preview .mlp-title { font-weight: 600; overflow-wrap: anywhere; }
+.minerva-link-preview .mlp-snippet {
+  color: var(--fg-muted, #4a4a4a);
+  font-size: 12px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 12em;
+  overflow: hidden;
+}
+@media print { .minerva-link-preview { display: none !important; } }
